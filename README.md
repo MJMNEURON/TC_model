@@ -12,14 +12,13 @@ Implementation of the LGN-PGN-Cx loop using the NEURON simulation environment wi
 
 
 ##### Network topologies included:
-Topology B, version 1 (`run_trial_condition_small.py`); 
-Topology B, version 2 (`run_trial_condition_larger.py`);
-Topology C, version 1 (`run_trial_condition_small_cx.py`); 
-Topology C, version 2 (`run_trial_condition_larger_cx.py`).
+* Topology B, version 1 (`run_trial_condition_small.py`); 
+* Topology B, version 2 (`run_trial_condition_larger.py`);
+* Topology C, version 1 (`run_trial_condition_small_cx.py`); 
+* Topology C, version 2 (`run_trial_condition_larger_cx.py`).
 
 ##### Conditions included:
-**csrall**: drifting sinusoidal gratings with varying contrast
-
-**lsr**: flashing light spots with varying size
+* **csrall**: drifting sinusoidal gratings with varying contrast
+* **lsr**: flashing light spots with varying size
 
 
