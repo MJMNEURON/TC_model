@@ -6,14 +6,16 @@ Implementation of the LGN-PGN-Cx loop using the NEURON simulation environment wi
 
 1. First, use `nrnivmodel` to compile the .mod files.
 2. To run, type `python main_program.py param_file` in a terminal
-   (for example: `python run_trial_lsr_small_cx.py 050_040_005_001_001_090`, for constructing the network topology with parameters speficied in parameter file `050_040_005_001_001_090.txt`)
+   (for example: `python run_trial_lsr_small_cx.py 050_040_005_001_001_090`, for constructing the network topology with parameters speficied in parameter file `050_040_005_001_001_090.txt`. A sample parameter file is already provided.)
 
-* Spike trains could be generated on [Virtual Retina](http://facets.inria.fr/retina/webservice.html) by using the animate gif images in `./stimuli`. Spike train files (`.dat`) are loaded `run_trial_condition_scale.py`, so the naming of the `.dat` files should be identical to that of the `run_trial_condition_scale.py`. 
+* Spike trains could be generated on [Virtual Retina](http://facets.inria.fr/retina/webservice.html) by using the animated gif images in `./stimuli`. Spike train files (`.dat`) are loaded `run_trial_condition_scale.py`, so the naming of the `.dat` files should be identical to that of the `run_trial_condition_scale.py`. 
 
 
 ##### Network topologies included:
-Topology B, version 1 (`run_trial_condition_small.py`); Topology B, version 2 (`run_trial_condition_larger.py`)
-Topology C, version 1 (`run_trial_condition_small_cx.py`); Topology C, version 2 (`run_trial_condition_larger_cx.py`)
+Topology B, version 1 (`run_trial_condition_small.py`); 
+Topology B, version 2 (`run_trial_condition_larger.py`);
+Topology C, version 1 (`run_trial_condition_small_cx.py`); 
+Topology C, version 2 (`run_trial_condition_larger_cx.py`).
 
 ##### Conditions included:
 **csrall**: drifting sinusoidal gratings with varying contrast
