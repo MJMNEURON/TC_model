@@ -1,0 +1,8 @@
+hocfile= "smallnet_050_040_005_001_001_090.hoc"
+dir_tc = "./run_lgn_pgn/smallnet_cx/050_040_005_001_001_090/light_spot_6/relay/tc_cell"
+dir_re = "./run_lgn_pgn/smallnet_cx/050_040_005_001_001_090/light_spot_6/reticular/re_cell"
+condition_id = 6
+trial_id = 3
+n_tc_cell = 4
+n_re_cell = 2
+dir_raster = "./run_lgn_pgn/smallnet_cx/050_040_005_001_001_090/raster_plot"

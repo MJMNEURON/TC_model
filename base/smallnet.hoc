@@ -1,0 +1,222 @@
+
+load_file("nrngui.hoc")
+load_file("template/TCcell_Apr3.tem")
+load_file("template/RE_preserved_Apr3.tem")
+load_file("template/interneuron_Apr3.tem")
+load_file("template/rgc.tem")
+
+//----------------------------------------------------------------------------
+// adding templated cells
+//----------------------------------------------------------------------------
+ncells_tc=4  
+objectvar TC[ncells_tc]      
+for i = 0, ncells_tc - 1 { 
+    TC[i] = new TCcell()
+    TC[i].position(i+300, 5, i*300)
+  }
+
+ncells_in=1   
+objectvar IN[ncells_in]     
+for i = 0, ncells_in - 1 { 
+    IN[i] = new INcell()
+    IN[i].position(i+696, 5, i*300) 
+  } 
+
+ncells_re=2   // sets the number of cells
+objectvar RE[ncells_re]      // create an array of object variables
+objectvar restim[ncells_re]
+for i = 0, ncells_re - 1 { 
+    RE[i] = new REcell()
+    RE[i].position(i, 5, i*300) // move origin of cel to (10, 5, -25)
+    // attach IClamp to fix resting membrane potential, equivalent to add_dc()
+    RE[i].soma_re restim[i] = new IClamp(.5)
+    restim[i].del = 0
+    restim[i].dur = 1e9 // dur has to be infinite when used with vector playing 
+    restim[i].amp = 0.1
+  }  
+
+//forall {print secname(), diam(0.5), distance(0.5)}
+/*
+distance(0, 0.5)
+  forall {
+    printf distance(0.5)
+    printf ("\n")
+  }
+*/
+
+ncells_rgc=4   
+objectvar RGC[ncells_rgc]     
+for i = 0, ncells_rgc - 1 { 
+    RGC[i] = new RGCcell()
+    RGC[i].position(i+300, 5, i*300) 
+  } 
+
+
+//----------------------------------------------------------------------------
+// adding stimuli
+//----------------------------------------------------------------------------
+n_stimuli = 4
+objectvar rstim[n_stimuli] // insert current injection
+objectvar fspikes[n_stimuli], vecspikes[n_stimuli], vecstim[n_stimuli]
+//for i = 0, n_stimuli -1 {
+for i = 0, n_stimuli -1 {
+    RGCcell[i].retinal_axon rstim[i] = new IClamp(.5)
+    rstim[i].del = 0
+    rstim[i].dur = 1e9 // dur has to be infinite when used with vector playing 
+    rstim[i].amp = 0
+
+    fspikes[i]=new File()
+    //fspikes[i].ropen("contrast/cs3_06.dat")
+    //fspikes[i].ropen("lightspot/condition1/spikes.dat")
+    if (i == 0){fspikes[i].ropen(spiking0)}
+    if (i == 1){fspikes[i].ropen(spiking1)}
+    if (i == 2){fspikes[i].ropen(spiking2)}
+    if (i == 3){fspikes[i].ropen(spiking3)}
+
+    vecspikes[i]=new Vector()
+    vecstim[i] = new Vector(4000,0)
+    vecspikes[i].scanf(fspikes[i])
+    for total=0, vecspikes[i].size()-1{
+       vecstim[i].x( int(vecspikes[i].x(total)*1000) ) = 4000 // *1000 for switching the unit
+      } 
+    // vecspikes[i].printf()
+    printf("%g\n", total/2.4)
+    vecstim[i].play( &rstim[i].amp, 1 )
+}
+
+/*
+RGCcell[0].retinal_axon rstim[0] = new IClamp(.5)
+rstim[0].del = 0
+rstim[0].dur = 1e9 // dur has to be infinite when used with vector playing 
+rstim[0].amp = 0
+
+fspikes[0]=new File()
+fspikes[0].ropen(spiking0)
+
+vecspikes[0]=new Vector()
+vecstim[0] = new Vector(4000,0)
+vecspikes[0].scanf(fspikes[0])
+for total=0, vecspikes[0].size()-1{
+   vecstim[0].x( int(vecspikes[0].x(total)*1000) ) = 4000 // *1000 for switching the unit
+  } 
+// vecspikes[0].printf()
+printf("%g\n", total/2.4)
+vecstim[0].play( &rstim[0].amp, 1 )
+
+
+RGCcell[1].retinal_axon rstim[1] = new IClamp(.5)
+rstim[1].del = 0
+rstim[1].dur = 1e9 // dur has to be infinite when used with vector playing 
+rstim[1].amp = 0
+
+fspikes[1]=new File()
+fspikes[1].ropen(spiking1)
+
+vecspikes[1]=new Vector()
+vecstim[1] = new Vector(4000,0)
+vecspikes[1].scanf(fspikes[1])
+for total=0, vecspikes[1].size()-1{
+   vecstim[1].x( int(vecspikes[1].x(total)*1000) ) = 4000 // *1000 for switching the unit
+  } 
+// vecspikes[1].printf()
+printf("%g\n", total/2.4)
+vecstim[1].play( &rstim[1].amp, 1 )
+//}
+
+
+
+RGCcell[2].retinal_axon rstim[2] = new IClamp(.5)
+rstim[2].del = 0
+rstim[2].dur = 1e9 // dur has to be infinite when used with vector playing 
+rstim[2].amp = 0
+
+fspikes[2]=new File()
+fspikes[2].ropen(spiking2)
+
+vecspikes[2]=new Vector()
+vecstim[2] = new Vector(4000,0)
+vecspikes[2].scanf(fspikes[2])
+for total=0, vecspikes[2].size()-1{
+   vecstim[2].x( int(vecspikes[2].x(total)*1000) ) = 4000 // *1000 for switching the unit
+  } 
+// vecspikes[2].printf()
+printf("%g\n", total/2.4)
+vecstim[2].play( &rstim[2].amp, 1 )
+
+
+RGCcell[3].retinal_axon rstim[3] = new IClamp(.5)
+rstim[3].del = 0
+rstim[3].dur = 1e9 // dur has to be infinite when used with vector playing 
+rstim[3].amp = 0
+
+fspikes[3]=new File()
+fspikes[3].ropen(spiking3)
+
+vecspikes[3]=new Vector()
+vecstim[3] = new Vector(4000,0)
+vecspikes[3].scanf(fspikes[3])
+for total=0, vecspikes[3].size()-1{
+   vecstim[3].x( int(vecspikes[3].x(total)*1000) ) = 4000 // *1000 for switching the unit
+  } 
+// vecspikes[3].printf()
+printf("%g\n", total/2.4)
+vecstim[3].play( &rstim[3].amp, 1 )
+*/
+//----------------------------------------------------------------------------
+// transient time
+//----------------------------------------------------------------------------
+trans = 00
+
+print " "
+print ">> Transient time of ",trans," ms"
+print " "
+
+//----------------------------------------------------------------------------
+// setup simulation parameters
+//----------------------------------------------------------------------------
+Dt = 0.2
+npoints = 12500
+
+dt = 0.1			// must be submultiple of Dt
+tstart = trans
+tstop = trans + npoints * Dt
+runStopAt = tstop
+steps_per_ms = 1/Dt
+
+celsius = 34			// temperature of John's experiments
+
+v_init = -74			// approximate resting Vm
+
+//----------------------------------------------------------------------------
+// adding graph(s): http://senselab.med.yale.edu/ModelDB/ShowModel.asp?model=18198&file=\SYN_NEW\gabab3.hoc
+//----------------------------------------------------------------------------
+objectvar g[20]         // max 20 graphs
+ngraph = 0
+
+proc addgraph() { local ii  // define subroutine to add a new graph
+                // addgraph("variable", minvalue, maxvalue)
+    ngraph = ngraph+1
+    ii = ngraph-1
+    g[ii] = new Graph()
+    g[ii].size(0,tstop,$2,$3)
+    g[ii].xaxis()
+    g[ii].yaxis()
+    g[ii].addvar($s1,1,0)
+    g[ii].save_name("graphList[0].")
+    graphList[0].append(g[ii])
+}
+
+//addgraph("v(0.5)",-80,40)
+//g.addvar("REcell[0].soma_re.v(0.5)", 2, 0.1) //red
+//addgraph("RGCcell[0].retinal_axon.v(0.5)",3,0.1) //blue
+
+addgraph("TCcell[0].soma_tc.v(0.5)",-80,40)
+/*
+addgraph("TCcell[1].soma_tc.v(0.5)",-80,40)
+addgraph("TCcell[2].soma_tc.v(0.5)",-80,40)
+addgraph("TCcell[3].soma_tc.v(0.5)",-80,40)
+addgraph("REcell[0].soma_re.v(0.5)",-80,40)
+addgraph("REcell[1].soma_re.v(0.5)",-80,40)
+addgraph("INcell[0].soma_in.v(0.5)",-80,40)
+*/
+//run()

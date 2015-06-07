@@ -1,0 +1,47 @@
+begintemplate RGCcell
+public retinal_axon, position, x, y, z
+create retinal_axon
+
+proc init () {
+	retinal_axon {
+		insert pas
+		g_pas = 3.79e-5
+		e_pas = -76.5       // to fit current-clamp data (was -71 to -73)
+		cm = 0.88
+		Ra = 173
+
+		insert hh2      // insert fast spikes
+		ena = 50
+		ek = -100
+		vtraub_hh2 = -52
+		gnabar_hh2 = 0.01       // adapted to single-compartment
+		gkbar_hh2 = 0.01        // adapted to single-compartment
+
+		insert itGHK        // T-current everywhere
+		cai = 2.4e-4 
+		cao = 2 
+		eca = 120 
+		shift_itGHK = -1    // screening charge shift + 3 mV error
+		gcabar_itGHK = 0.0002
+		pcabar_itGHK = 8e-5
+		qm_itGHK = 2.5
+		qh_itGHK = 2.5
+
+		insert cad      // calcium diffusion everywhere
+		depth_cad = 0.1
+		kt_cad = 0      // no pump
+		kd_cad = 1e-4
+		taur_cad = 5
+		cainf_cad = 2.4e-4  
+	}
+	x = y = z = 0
+}
+
+proc position() { local i
+  retinal_axon for i = 0, n3d()-1 {
+    pt3dchange(i, $1-x+x3d(i), $2-y+y3d(i), $3-z+z3d(i), diam3d(i))
+  }
+  x = $1  y = $2  z = $3
+}
+
+endtemplate RGCcell

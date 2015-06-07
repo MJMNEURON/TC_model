@@ -1,0 +1,5 @@
+spiking3="lightspot/lsr06/lsr06_rgccell_4084/lsr06_rgccell_4084_03.dat"
+spiking2="lightspot/lsr06/lsr06_rgccell_4080/lsr06_rgccell_4080_03.dat"
+spiking1="lightspot/lsr06/lsr06_rgccell_1380/lsr06_rgccell_1380_03.dat"
+spiking0="lightspot/lsr06/lsr06_rgccell_1376/lsr06_rgccell_1376_03.dat"
+strdef spiking0, spiking1, spiking2, spiking3

@@ -1,0 +1,6 @@
+cw_re_re = 0.9
+cw_re_tc = 0.01
+cw_tc_re = 0.01
+cw_in_tc = 0.05
+cw_rgc_in = 0.4
+cw_rgc_tc = 0.5

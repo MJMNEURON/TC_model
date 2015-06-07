@@ -1,0 +1,7 @@
+{	# base on max.path_length/3, ~198um for each group
+	'soma_in':['soma_in'], 
+	'proximal_in':['dend_in[72]', 'dend_in[27]', 'dend_in[8]', 'dend_in[48]', 'dend_in[7]', 'dend_in[50]', 'dend_in[1]', 'dend_in[63]', 'dend_in[11]', 'dend_in[85]', 'dend_in[26]', 'dend_in[73]', 'dend_in[68]', 'dend_in[61]', 'dend_in[84]', 'dend_in[49]', 'dend_in[10]', 'dend_in[54]', 'dend_in[6]', 'dend_in[64]', 'dend_in[25]', 'dend_in[82]', 'dend_in[53]', 'dend_in[67]', 'dend_in[22]', 'dend_in[24]', 'dend_in[62]', 'dend_in[59]', 'dend_in[83]', 'dend_in[0]', 'dend_in[66]', 'dend_in[104]', 'dend_in[60]', 'dend_in[23]', 'dend_in[58]', 'dend_in[9]', 'dend_in[65]', 'dend_in[57]', 'dend_in[20]', 'dend_in[5]', 'dend_in[56]', 'dend_in[21]', 'dend_in[2]' ], 
+	'medial_in': ['dend_in[88]', 'dend_in[39]', 'dend_in[31]', 'dend_in[13]', 'dend_in[15]', 'dend_in[76]', 'dend_in[101]', 'dend_in[30]', 'dend_in[75]', 'dend_in[12]', 'dend_in[4]', 'dend_in[102]', 'dend_in[87]', 'dend_in[3]', 'dend_in[52]', 'dend_in[81]', 'dend_in[70]', 'dend_in[71]', 'dend_in[51]', 'dend_in[80]', 'dend_in[45]', 'dend_in[86]', 'dend_in[47]', 'dend_in[29]', 'dend_in[46]', 'dend_in[69]', 'dend_in[74]', 'dend_in[79]', 'dend_in[28]', 'dend_in[103]', 'dend_in[55]'],
+	'distal_in':['dend_in[42]', 'dend_in[37]','dend_in[43]','dend_in[36]','dend_in[35]','dend_in[41]','dend_in[34]','dend_in[44]','dend_in[33]','dend_in[38]','dend_in[14]','dend_in[40]','dend_in[32]','dend_in[77]','dend_in[78]']
+	# ,'dend_in[16]', 'dend_in[17]','dend_in[18]','dend_in[19]'
+}
