@@ -1,6 +1,6 @@
 # TC_model
 
-Implementation of the LGN-PGN-Cx loop.
+Implementation of the LGN-PGN-Cx loop using the NEURON simulation environment with Python interface.
 
 **_Usage:_**
 
