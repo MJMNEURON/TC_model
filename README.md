@@ -4,7 +4,7 @@ Implementation of the LGN-PGN-Cx loop using the NEURON simulation environment wi
 
 **_Usage:_**
 
-1. First, use `nrnivmodel` to compile the .mod files.
+1. First, use `nrnivmodl` to compile the .mod files.
 2. To run, type `python main_program.py param_file` in a terminal
    (for example: `python run_trial_lsr_small_cx.py 050_040_005_001_001_090`, for constructing the network topology with parameters speficied in parameter file `050_040_005_001_001_090.txt`. A sample parameter file is already provided.)
 
