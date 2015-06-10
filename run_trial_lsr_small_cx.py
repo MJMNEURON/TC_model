@@ -176,7 +176,7 @@ for ii in range(3,7):
 		#print seg.spiketrains
 		for st in seg.spiketrains:
 			st.t_stop = 2400*ms
-		tc_plot = es.time_histogram(seg.spiketrains, 2*ms, output='counts')    
+		tc_plot = es.time_histogram(seg.spiketrains, 20*ms, output='counts')    
 		plt.plot(tc_plot)
 
 		os.chdir('/Users/jiemei/Desktop/TC_model/run_lgn_pgn/smallnet_cx/'+conn_weight+'/tc_lsr_results')
@@ -197,7 +197,7 @@ for ii in range(3,7):
 		#print seg.spiketrains
 		for st in seg.spiketrains:
 			st.t_stop = 2400*ms
-		re_plot = es.time_histogram(seg.spiketrains, 2*ms, output='counts')    
+		re_plot = es.time_histogram(seg.spiketrains, 20*ms, output='counts')    
 		plt.plot(re_plot)
 		plt.ylim(0, 60)
 		os.chdir('/Users/jiemei/Desktop/TC_model/run_lgn_pgn/smallnet_cx/'+conn_weight+'/re_lsr_results')
