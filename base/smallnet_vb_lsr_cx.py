@@ -180,7 +180,8 @@ for i in range(0, n_tc_cell):
 for i in range(0, n_re_cell):
 	directory_re = dir_re+str(i)+'/'
 	data_output(directory_re, 're_cell'+str(i)+'_lsr'+str(condition_id)+'_0'+str(trial_id), vec_soma_re, 'v_soma_re'+str(i))
-########################################################################	
+########################################################################
+###### plotting the cortical spike trains
 for i in range(0, ncell_tc):
 	plt.scatter(timevec_all_tc[i], idvec_all_tc[i], c='b', marker='|') #you can change the color and marker according to the pylab documentation
 	#plt.show()
