@@ -83,7 +83,7 @@ if not os.path.exists(rasterplots):
 ###### changing input file to smallnet.hoc
 ######
 for ls_condition in range(3,7):
-	for trial_num in range(1,4):		
+	for trial_num in range(1,101):		
 		f=open('/Users/jiemei/Desktop/TC_model/param/input_retinal.txt','w') # completing the parameter file by adding the path for accesing the .spk
 		spiking3='"lightspot/lsr0'+str(ls_condition)+'/lsr0'+str(ls_condition)+'_rgccell_4084/lsr0'+str(ls_condition)+'_rgccell_4084'+'_0'+str(trial_num)+'.dat"'
 		spiking2='"lightspot/lsr0'+str(ls_condition)+'/lsr0'+str(ls_condition)+'_rgccell_4080/lsr0'+str(ls_condition)+'_rgccell_4080'+'_0'+str(trial_num)+'.dat"'
