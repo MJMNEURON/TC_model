@@ -186,7 +186,7 @@ for i in range(0, ncell_tc):
 	#plt.show()
 	plt.ylim(0, 100)
 	plt.xlim(0, 2550)
-	plt.savefig(dir_raster+'/raster_plot'+str(i)+'.png') #this will save the plot - comment out if this is not needed
+	plt.savefig(dir_raster+'/raster_plot_tc'+str(i)+'.png') #this will save the plot - comment out if this is not needed
 	plt.close()
 
 for i in range(0, ncell_re):
@@ -194,7 +194,7 @@ for i in range(0, ncell_re):
 	#plt.show()
 	plt.ylim(0, 100)
 	plt.xlim(0, 2550)
-	plt.savefig(dir_raster+'/raster_plot'+str(i)+'.png') #this will save the plot - comment out if this is not needed
+	plt.savefig(dir_raster+'/raster_plot_re'+str(i)+'.png') #this will save the plot - comment out if this is not needed
 	plt.close()
 
 for i in range(0, ncell_in):
@@ -202,5 +202,5 @@ for i in range(0, ncell_in):
 	#plt.show()
 	plt.ylim(0, 100)
 	plt.xlim(0, 2550)
-	plt.savefig(dir_raster+'/raster_plot'+str(i)+'.png') #this will save the plot - comment out if this is not needed
+	plt.savefig(dir_raster+'/raster_plot_in'+str(i)+'.png') #this will save the plot - comment out if this is not needed
 	plt.close()
